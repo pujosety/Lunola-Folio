@@ -476,8 +476,12 @@ installation overrides are not supported.
 
 | Build | File | Notes |
 |---|---|---|
-| App, universal (Apple silicon + Intel) | `lunola-folio-<ver>-macos-universal.dmg` | Signed and notarized |
-| Command-line tool, universal | `lunola-folio-cli-<ver>-macos-universal.zip` | Signed and notarized |
+| App, universal (Apple silicon + Intel) | `lunola-folio-<ver>-macos-universal.dmg` | **Not yet published** — see note below |
+| Command-line tool, universal | `lunola-folio-cli-<ver>-macos-universal.zip` | **Not yet published** — see note below |
+
+> **Signing is still pending.** macOS and Windows installers are not yet signed or notarized —
+> that requires code-signing certificates and secrets that aren't available yet.
+> Build from source for now.
 
 ### Linux
 
