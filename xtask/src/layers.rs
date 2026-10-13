@@ -112,7 +112,7 @@ pub const UI_CRATES: &[&str] = &["egui", "eframe", "winit", "egui_kittest", "cra
 pub const UI_MIN_LAYER: u8 = 7;
 
 pub fn short_name(pkg: &str) -> &str {
-    pkg.strip_prefix("pdfcraft-").unwrap_or(pkg)
+    pkg.strip_prefix("pdfcraft-").or_else(|| pkg.strip_prefix("lunola-folio-")).unwrap_or(pkg)
 }
 
 pub fn classify(pkg: &str) -> Option<Class> {
@@ -276,7 +276,7 @@ mod tests {
             c("pdfcraft-render", &[("hayro", Normal, false), ("lopdf", Normal, false)]),
             c("pdfcraft-engine", &[("pdfcraft-render", Normal, true)]),
             c("pdfcraft-ui-egui", &[("pdfcraft-engine", Normal, true), ("egui", Normal, false), ("egui_kittest", Dev, false)]),
-            c("pdfcraft", &[("pdfcraft-ui-egui", Normal, true)]),
+            c("lunola-folio", &[("pdfcraft-ui-egui", Normal, true)]),
         ];
         assert!(check(&g).is_empty(), "{:?}", check(&g));
     }

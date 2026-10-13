@@ -302,8 +302,8 @@ fn tabs_shrink_to_fit_then_arrows_step_through_them_and_open_stays_in_sight() {
         }
     });
     let open = h.get_by_label("Open").rect();
-    let support = h.get_by_label("Report an Issue").rect();
-    assert!(open.right() <= support.left(), "Open {open:?} must not run under the support button {support:?}");
+    let support = h.get_by_label("Keyboard shortcuts").rect();
+    assert!(open.right() <= support.left(), "Open {open:?} must not run under the shortcuts button {support:?}");
     let mut previous_right = f32::MIN;
     for i in 0..5 {
         let tab = h.get_by_label(&name(i)).rect();
@@ -327,15 +327,15 @@ fn tabs_shrink_to_fit_then_arrows_step_through_them_and_open_stays_in_sight() {
     assert_eq!(enabled(&h, "Scroll tabs right"), Some(true), "and then there is more to the right");
     let open = h.get_by_label("Open").rect();
     let right = h.get_by_label("Scroll tabs right").rect();
-    assert!(right.right() <= open.left() + 0.5 && open.right() <= h.get_by_label("Community").rect().left());
-    // Twenty: Open stays in sight left of Community.
+    assert!(right.right() <= open.left() + 0.5 && open.right() <= h.get_by_label("Keyboard shortcuts").rect().left());
+    // Twenty: Open stays in sight left of the shortcuts button.
     for i in 0..13 {
         h.state_mut().open_bytes(&format!("more-{i:02}.pdf"), None, FIXTURE.to_vec()).unwrap();
     }
     h.run_steps(4);
     let open = h.get_by_label("Open").rect();
-    let support = h.get_by_label("Report an Issue").rect();
-    assert!(open.left() > 0.0 && open.right() <= support.left(), "Open {open:?} stays in sight left of the support button {support:?}");
+    let support = h.get_by_label("Keyboard shortcuts").rect();
+    assert!(open.left() > 0.0 && open.right() <= support.left(), "Open {open:?} stays in sight left of the shortcuts button {support:?}");
 }
 
 /// macOS (#789): with the integrated title bar, the strip is the 28 pt band AppKit centres the
