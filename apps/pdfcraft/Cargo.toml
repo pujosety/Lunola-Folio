@@ -1,6 +1,6 @@
 [package]
-name = "pdfcraft"
-description = "PdfCraft desktop app"
+name = "lunola-folio"
+description = "Lunola Folio desktop app"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
@@ -52,5 +52,5 @@ windows = { version = "0.62", default-features = false, features = ["std", "UI_V
 uds_windows = "=1.2.1"
 
 [build-dependencies]
-# Icon + VERSIONINFO for pdfcraft.exe; build.rs only uses it when targeting Windows.
+# Icon + VERSIONINFO for lunola-folio.exe; build.rs only uses it when targeting Windows.
 winresource = "0.1"

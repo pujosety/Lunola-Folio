@@ -82,7 +82,7 @@ impl RenderConfig {
 /// A Japanese face from craft-fonts for a CID font of the Adobe-Japan1 collection that the PDF
 /// doesn't embed (`HeiseiMin-W3`, `KozGoPro-Medium`, …). hayro's own substitutes for fonts that
 /// aren't embedded are the Latin standard 14, so such text drew nothing. `None` for every other
-/// font, and when PdfCraft was built without craft-fonts. Only Japanese: the pinned craft-fonts
+/// font, and when Lunola Folio was built without craft-fonts. Only Japanese: the pinned craft-fonts
 /// has no other CJK faces, and its later Chinese face is Noto CJK, which AGENTS.md §1.1 rules out.
 fn japanese_fallback(query: &FontQuery) -> Option<(FontData, u32)> {
     let FontQuery::Fallback(f) = query else { return None };
@@ -4003,7 +4003,7 @@ trailer << /Root 1 0 R >>
         }
     }
 
-    /// Item 1 of storytold/pdfcraft#623: a page's content used to be cut at `MAX_DECODED_STREAM`,
+    /// Item 1 of pujosety/pdfcraft#623: a page's content used to be cut at `MAX_DECODED_STREAM`,
     /// so everything after the cut was lost (the text and the title block of the A1 sample). Content
     /// that expands by a few times over is read to its end, however large it is.
     #[test]

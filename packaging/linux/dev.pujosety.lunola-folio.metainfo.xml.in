@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- AppStream metadata (software centres, Flathub). Template: package.sh and the Flatpak
+     manifest substitute @VERSION@ and @DATE@ from Cargo.toml and the build date. -->
+<component type="desktop-application">
+  <id>dev.pujosety.lunola-folio</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT OR Apache-2.0</project_license>
+  <name>Lunola Folio</name>
+  <summary>Read, organize, combine, split and secure PDFs</summary>
+  <developer id="pujosety">
+    <name>pujosety</name>
+  </developer>
+  <description>
+    <p>
+      Lunola Folio is a playful, open-source PDF editor. Read, comment on, fill in and sign PDFs;
+      organize, combine and split pages; edit, redact, protect and export documents.
+    </p>
+  </description>
+  <launchable type="desktop-id">dev.pujosety.lunola-folio.desktop</launchable>
+  <icon type="stock">dev.pujosety.lunola-folio</icon>
+  <!-- Only url types known to appstream 0.15 (Ubuntu 22.04, where CI validates): no vcs-browser. -->
+  <url type="homepage">https://getlunola.com/apps/lunola-folio</url>
+  <url type="bugtracker">https://github.com/pujosety/Lunola-Folio/issues</url>
+  <url type="help">https://github.com/pujosety/Lunola-Folio</url>
+  <url type="contact">https://github.com/pujosety/Lunola-Folio/issues</url>
+  <categories>
+    <category>Office</category>
+    <category>Viewer</category>
+  </categories>
+  <keywords>
+    <keyword>pdf</keyword>
+    <keyword>viewer</keyword>
+    <keyword>annotate</keyword>
+    <keyword>forms</keyword>
+  </keywords>
+  <screenshots>
+    <screenshot type="default">
+      <caption>A PDF open with its threaded comments</caption>
+      <image>https://raw.githubusercontent.com/pujosety/lunola-folio/main/docs/images/lunola-folio-viewer.png</image>
+    </screenshot>
+  </screenshots>
+  <branding>
+    <color type="primary" scheme_preference="light">#9fd0ff</color>
+    <color type="primary" scheme_preference="dark">#1f64ba</color>
+  </branding>
+  <requires>
+    <display_length compare="ge">760</display_length>
+  </requires>
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>tablet</control>
+  </supports>
+  <provides>
+    <binary>lunola-folio</binary>
+    <mediatype>application/pdf</mediatype>
+  </provides>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="@VERSION@" date="@DATE@"/>
+  </releases>
+</component>

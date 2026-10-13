@@ -19,7 +19,7 @@ Saving and reopening therefore needs no locally installed font. Original subset 
 preserved. Optional matching faces from `CRAFT_FONTS_DIR` can also complete source subsets;
 this works only when that build input actually contains the full face. This change does not
 add a font binary or change the release font pin. Fonts shared by releases belong in
-`storytold/craft-fonts` under the repository's asset rules.
+`pujosety/craft-fonts` under the repository's asset rules.
 
 Select text within the editor before changing size, colour, font, underline or spacing to
 format that selection. Automation supports up to 1024 disjoint UTF-8 byte ranges with the
@@ -44,7 +44,7 @@ scanned line kept apart. Applying an edit draws the new text visibly in the scan
 the one chosen) and first covers the old words with the paper colour sampled around them. Each
 word keeps its position and width, and a longer phrase grows rightwards rather than wrapping. The
 cover is one flat colour, and the text uses the layer's Helvetica, not the scanned typeface.
-This applies to any invisible text (rendering mode 3), not just a PdfCraft OCR layer: editing
+This applies to any invisible text (rendering mode 3), not just a Lunola Folio OCR layer: editing
 invisible text, such as another OCR tool's layer, makes the rewritten paragraph visible over a
 painted cover in the sampled paper colour. Edit text also groups invisible text differently: its lines never
 merge into multi-line paragraphs, and words split at gaps of 0.6 em or more.

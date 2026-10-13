@@ -98,7 +98,7 @@ const FIND_MAX_BATCH: usize = 128;
 /// Page texts of one document version: (the working bytes, one slot per page).
 type TextCache = (Arc<Vec<u8>>, Vec<Option<Arc<PageText>>>);
 
-/// A headless PdfCraft session driven by tool calls.
+/// A headless Lunola Folio session driven by tool calls.
 pub struct Automation {
     session: Session,
     root: Option<PathBuf>,
@@ -2099,7 +2099,7 @@ fn info(d: &Document) -> Value {
         "tagged": i.tagged,
         "has_javascript": i.has_javascript,
         // XFA forms: "static" (the PDF's own fields work; the XFA data is ignored) or "dynamic"
-        // (laid out from the template by PdfCraft, see xfa_layout; placeholder pages when that failed).
+        // (laid out from the template by Lunola Folio, see xfa_layout; placeholder pages when that failed).
         "xfa": i.xfa.map(|x| match x { pdfcraft_render::Xfa::Static => "static", pdfcraft_render::Xfa::Dynamic => "dynamic" }),
         "xfa_layout": d.xfa.as_ref().map(|x| json!({ "pages": x.pages, "fields": x.fields, "warnings": x.warnings })),
         // A script of the form ran too long and was abandoned: its scripts no longer run in this

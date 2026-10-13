@@ -1,6 +1,6 @@
 [package]
 name = "pdfcraft-render"
-description = "Page rendering (bootstrap: hayro) and document inspection for PdfCraft"
+description = "Page rendering (bootstrap: hayro) and document inspection for Lunola Folio"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
@@ -27,7 +27,7 @@ bytemuck = { version = "1" }
 getrandom = { version = "0.4", features = ["wasm_js"] }
 
 [dev-dependencies]
-# Checks the Japanese substitute's character coverage; the version pdfcraft-fonts already uses.
+# Checks the Japanese substitute's character coverage; the version lunola-folio-fonts already uses.
 skrifa = "0.44"
 # Builds the decompression-bomb streams in the raster tests.
 flate2 = { workspace = true }

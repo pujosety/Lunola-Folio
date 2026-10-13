@@ -2,7 +2,7 @@
 
 ## Reproduced failure
 
-On one Windows 11 Pro build 26200 host, the official PdfCraft 0.6.0 x86 installation and
+On one Windows 11 Pro build 26200 host, the official Lunola Folio 0.6.0 x86 installation and
 portable EXE both exited with code 101 before displaying a usable window. Their EXE SHA-256
 matched: `3a3a9ba75ec9f8ecc25863e9138fac57e17f359a5de5add486efedd83e0fcf8f`.
 The host has an NVIDIA GeForce RTX 3050 Laptop GPU, driver `32.0.16.1088`, and an AMD iGPU.
@@ -47,7 +47,7 @@ not the underlying host-specific shader compiler defect.
 ```powershell
 $env:PDFCRAFT_TEST_REQUIRE_GPU = '1'
 $env:WGPU_BACKEND = 'vulkan'
-cargo test --locked -p pdfcraft pipeline_creation_error_is_returned_and_device_remains_usable -- --nocapture
+cargo test --locked -p lunola-folio pipeline_creation_error_is_returned_and_device_remains_usable -- --nocapture
 ```
 
 An ordinary run reports an unavailable GPU branch as skipped. `PDFCRAFT_TEST_REQUIRE_GPU`

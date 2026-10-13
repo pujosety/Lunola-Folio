@@ -1,11 +1,11 @@
-# pdfcraft-fonts
+# lunola-folio-fonts
 
-Layer L2. Font helpers for the appearance streams PdfCraft generates (comments, form fields).
+Layer L2. Font helpers for the appearance streams Lunola Folio generates (comments, form fields).
 
 Today it holds what generated appearances need without a font program:
 
 - `helvetica_width`: an approximation of Helvetica's proportions by character class. No metrics
-  file or font program from any vendor is bundled; widths are PdfCraft's own estimates, good
+  file or font program from any vendor is bundled; widths are Lunola Folio's own estimates, good
   enough for line breaking and alignment, not for typesetting.
 - `wrap`: greedy line breaking with that measure (paragraphs on newlines, long words split).
 - `win_ansi`: Unicode → WinAnsiEncoding bytes (`?` for characters it can't represent), and
@@ -17,7 +17,7 @@ Today it holds what generated appearances need without a font program:
   `set_undrawn_mark` (`UNDRAWN_MARK`, read back by `undrawn_mark`) so the edit is reported and
   flattening refuses. `script_missing` names what the typed-signature script font and its Inter fallback both lack.
 
-It also holds the fonts of the optional [craft-fonts](https://github.com/storytold/craft-fonts)
+It also holds the fonts of the optional [craft-fonts](https://github.com/pujosety/craft-fonts)
 build input. `build.rs` embeds them as `CRAFT_FONTS` when the build sets
 `CRAFT_FONTS_DIR=<checkout>` (and fails if it can't while `CRAFT_FONTS_REQUIRED=1`, as releases
 set). Without that variable `CRAFT_FONTS` is empty and everything below copes:
@@ -67,7 +67,7 @@ needed.
 wasm32 builds embed only BIZ UDPGothic Regular and any `Arab`, `Telu`, `Hebr` or `Thai` face, to keep the web build small: the web build
 currently has no Chinese face, so Chinese there still shows the replacement glyph.
 Font files are never
-committed here (`AGENTS.md` §1.4; team members: [craftrules `standards/fonts.md`](https://github.com/storytold/craftrules/blob/main/standards/fonts.md), internal).
+committed here (`AGENTS.md` §1.4; team members: [craftrules `standards/fonts.md`](https://github.com/pujosety/craftrules/blob/main/standards/fonts.md), internal).
 
 The full font subsystem (parsing, shaping, subsetting and embedding) arrives with M2.2/M7.
 

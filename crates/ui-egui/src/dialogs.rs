@@ -7,6 +7,12 @@ use pdfcraft_engine::Edit;
 
 use crate::{CloseRequest, Dialog, PdfCraftApp, PropsTab, panels::human_size, widgets};
 
+/// The operating system and architecture, as an About panel and a bug report want them
+/// (`windows x86_64`, `macos aarch64`).
+fn os_description() -> String {
+    format!("{} {}", std::env::consts::OS, std::env::consts::ARCH)
+}
+
 const INFO_KEYS: [&str; 4] = ["Title", "Author", "Subject", "Keywords"];
 
 pub fn show(app: &mut PdfCraftApp, ctx: &egui::Context) {
@@ -1006,7 +1012,7 @@ fn dialogs(app: &mut PdfCraftApp, ctx: &egui::Context) {
                     ui.label(egui::RichText::new(tl!("Recover unsaved documents?")).font(theme::semibold(18.0)));
                 });
                 ui.add_space(6.0);
-                ui.label(tl!("PdfCraft didn't shut down normally. These documents had changes that were autosaved:"));
+                ui.label(tl!("Lunola Folio didn't shut down normally. These documents had changes that were autosaved:"));
                 ui.add_space(8.0);
                 let now = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map(|d| d.as_secs()).unwrap_or(0);
                 egui::Grid::new("recoverable").num_columns(2).spacing([18.0, 6.0]).show(ui, |ui| {
@@ -1095,14 +1101,46 @@ fn dialogs(app: &mut PdfCraftApp, ctx: &egui::Context) {
                     2 => crate::credits::models_ui(ui),
                     _ => {
                         ui.horizontal(|ui| {
-                            widgets::artcraft_mark(ui, 40.0);
+                            widgets::lunola_mark(ui, 40.0);
                             ui.vertical(|ui| {
-                                ui.label(egui::RichText::new("PdfCraft").font(theme::semibold(20.0)));
-                                ui.label(crate::i18n::fmt(tl!("Version {v}"), &[("v", env!("CARGO_PKG_VERSION"))]));
+                                ui.label(egui::RichText::new("Lunola Folio").font(theme::semibold(20.0)));
+                                ui.label(egui::RichText::new(tl!("Documents, made delightful.")).color(t.text_muted));
                             });
                         });
-                        ui.add_space(6.0);
-                        ui.label(tl!("A clean-room, open-source PDF application written in Rust. MIT OR Apache-2.0."));
+                        ui.add_space(10.0);
+                        ui.label(tl!("A member of the Lunola Creative Universe."));
+                        ui.label(
+                            egui::RichText::new("A playful, powerful PDF editor. Clean-room, open source, written in Rust. MIT OR Apache-2.0.")
+                                .color(t.text_muted)
+                                .small(),
+                        );
+                        ui.add_space(10.0);
+                        // Version, build and platform: what a bug report needs.
+                        egui::Grid::new("about_info").num_columns(2).spacing([16.0, 4.0]).show(ui, |ui| {
+                            for (k, v) in [
+                                (tl!("Version"), env!("CARGO_PKG_VERSION").to_string()),
+                                (tl!("Operating system"), os_description()),
+                                (tl!("Maintainer"), "pujosety".to_string()),
+                            ] {
+                                ui.label(egui::RichText::new(k).color(t.text_muted));
+                                ui.label(v);
+                                ui.end_row();
+                            }
+                        });
+                        ui.add_space(10.0);
+                        ui.horizontal(|ui| {
+                            ui.label(egui::RichText::new(tl!("Repository")).color(t.text_muted));
+                            ui.hyperlink_to(pdfcraft_engine::links::GITHUB, pdfcraft_engine::links::GITHUB);
+                        });
+                        ui.add_space(12.0);
+                        // The two buttons the About panel is required to offer.
+                        if widgets::pill_button(ui, tl!("GitHub Repository"), false).clicked() {
+                            link_command = Some("help.github");
+                        }
+                        if widgets::pill_button(ui, tl!("Report an Issue"), false).clicked() {
+                            link_command = Some("help.issues");
+                        }
+                        ui.add_space(10.0);
                         ui.label(
                             egui::RichText::new(
                                 "Rendering: hayro (bootstrap) · UI: egui · Icons: Lucide (ISC) · Fonts: Inter, JetBrains Mono, Dancing Script (OFL)",
@@ -1110,15 +1148,11 @@ fn dialogs(app: &mut PdfCraftApp, ctx: &egui::Context) {
                             .color(t.text_muted)
                             .small(),
                         );
-                        ui.add_space(12.0);
+                        ui.add_space(8.0);
                         ui.horizontal(|ui| {
                             ui.label(egui::RichText::new(tl!("Part of")).color(t.text_muted));
-                            widgets::artcraft_logo(ui, 16.0);
+                            widgets::lunola_logo(ui, 16.0);
                         });
-                        ui.add_space(6.0);
-                        if let Some(cmd) = widgets::community_links(ui) {
-                            link_command = Some(cmd);
-                        }
                     }
                 }
             }

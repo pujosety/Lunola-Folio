@@ -3,7 +3,7 @@
 # exports VERSION and NFPM_ARCH.
 #
 #   nfpm package -f packaging/linux/nfpm.yaml -p deb -t dist/release/
-name: pdfcraft
+name: lunola-folio
 arch: ${NFPM_ARCH}
 platform: linux
 version: ${VERSION}
@@ -13,13 +13,13 @@ release: 1
 section: graphics
 priority: optional
 maintainer: ${PDFCRAFT_MAINTAINER}
-vendor: Learning Machines LLC
-homepage: https://getartcraft.com/apps/pdfcraft
+vendor: pujosety
+homepage: https://getlunola.com/apps/lunola-folio
 license: MIT OR Apache-2.0
 description: |-
-  Open-source, native PDF workbench: read, comment, fill and sign forms,
+  Open-source, native PDF editor: read, comment, fill and sign forms,
   organize, combine, split, edit, redact, protect and export PDFs.
-  Includes pdfcraft-cli, a headless command runner and opt-in MCP server.
+  Includes lunola-folio-cli, a headless command runner and opt-in MCP server.
 
 # The binaries link only glibc and libgcc_s directly. Windowing (X11/Wayland, xkbcommon) and the
 # GPU (Vulkan, EGL/GL) are loaded at runtime, so they are dependencies/recommendations here
@@ -58,11 +58,11 @@ overrides:
       - xdg-desktop-portal
 
 contents:
-  - src: ${STAGE}/usr/bin/pdfcraft
-    dst: /usr/bin/pdfcraft
+  - src: ${STAGE}/usr/bin/lunola-folio
+    dst: /usr/bin/lunola-folio
     file_info: { mode: 0755 }
-  - src: ${STAGE}/usr/bin/pdfcraft-cli
-    dst: /usr/bin/pdfcraft-cli
+  - src: ${STAGE}/usr/bin/lunola-folio-cli
+    dst: /usr/bin/lunola-folio-cli
     file_info: { mode: 0755 }
   - src: ${STAGE}/usr/share/
     dst: /usr/share/

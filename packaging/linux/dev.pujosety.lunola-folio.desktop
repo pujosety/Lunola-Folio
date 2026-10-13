@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Name=Lunola Folio
+GenericName=PDF Editor
+Comment=Read, organize, combine, split and secure PDFs
+Exec=lunola-folio %U
+TryExec=lunola-folio
+Icon=dev.pujosety.lunola-folio
+Terminal=false
+StartupNotify=true
+StartupWMClass=dev.pujosety.lunola-folio
+Categories=Office;Viewer;
+Keywords=pdf;viewer;editor;annotate;sign;forms;merge;split;
+MimeType=application/pdf;

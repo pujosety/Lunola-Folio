@@ -5,7 +5,7 @@
 #   ROOT                    workspace root
 #   VERSION                 [workspace.package] version from Cargo.toml (override: PDFCRAFT_VERSION)
 #   DIST                    output directory for release artifacts (default: $ROOT/dist/release)
-#   PDFCRAFT_BUILD_SHA    git commit, recorded in the macOS Info.plist (PdfCraftBuildCommit)
+#   PDFCRAFT_BUILD_SHA    git commit, recorded in the macOS Info.plist (Lunola FolioBuildCommit)
 #   PDFCRAFT_BUILD_DATE   UTC build date, YYYY-MM-DD
 #   CARGO_TARGET_DIR        cargo's target dir (default: $ROOT/target)
 
@@ -67,7 +67,7 @@ copy_font_licences() {
 
 # Fetch the OCR models into a package directory (#103): `cargo xtask models DEST` downloads every
 # ATTRIBUTION.toml `kind = "model"` file, verified by SHA-256, with its licence text and an
-# ATTRIBUTION.txt crediting them. DEST must be where pdfcraft_ocr::Models::dirs_beside_exe looks
+# ATTRIBUTION.txt crediting them. DEST must be where lunola-folio_ocr::Models::dirs_beside_exe looks
 # from the installed executable. Nothing here names a model file, so a model added to the manifest
 # later ships without changing the packaging.
 stage_models() {

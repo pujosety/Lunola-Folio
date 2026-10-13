@@ -1,5 +1,5 @@
-//! Community links: the Discord button is one click away everywhere; Help menu, About dialog and
-//! home screen open the ArtCraft and PdfCraft pages.
+//! Support links: GitHub Issues is one click away everywhere; Help menu, About dialog and the
+//! home screen open the Lunola Folio repository pages. Discord was removed in the rebrand.
 
 use egui_kittest::Harness;
 use egui_kittest::kittest::Queryable;
@@ -17,25 +17,35 @@ fn harness(setup: impl FnOnce(&mut PdfCraftApp) + 'static) -> Harness<'static, P
     h
 }
 
+/// The rebrand removed Discord from the product: no link, no command, no button.
 #[test]
-fn discord_button_in_the_top_bar_opens_discord() {
-    let mut h = harness(|_| {});
-    h.get_by_label("Discord").click();
-    h.run_steps(2);
-    assert_eq!(h.state().last_opened_url.as_deref(), Some(links::DISCORD));
-    assert_eq!(links::DISCORD, "https://discord.gg/artcraft");
+fn discord_is_gone_from_the_product() {
+    assert!(
+        !links::LINKS.iter().any(|l| l.command.contains("discord") || l.url.to_ascii_lowercase().contains("discord")),
+        "no Discord link may remain in the link table"
+    );
+    for cmd in ["help.discord", "help.app_page", "help.website"] {
+        assert!(pdfcraft_engine::commands::command(cmd).is_none(), "{cmd} must not be a registered command");
+    }
+}
+
+/// Every link goes to the official repository, and never to the old project.
+#[test]
+fn every_link_points_at_the_official_repository() {
+    for l in links::LINKS {
+        assert!(l.url.starts_with("https://github.com/pujosety/Lunola-Folio"), "{} -> {}", l.command, l.url);
+        assert!(!l.url.contains("getartcraft") && !l.url.contains("getlunola"), "{} still points at the old site", l.command);
+        assert!(!l.url.to_ascii_lowercase().contains("discord"), "{} points at Discord", l.command);
+    }
 }
 
 #[test]
 fn home_screen_links() {
-    for (label, url) in [
-        ("Join our Discord", links::DISCORD),
-        ("PdfCraft web page", "https://getartcraft.com/apps/pdfcraft"),
-        ("PdfCraft on GitHub", "https://github.com/storytold/pdfcraft"),
-        ("ArtCraft website", "https://getartcraft.com"),
-    ] {
+    for (label, url) in
+        [("Report an Issue", links::ISSUES), ("View on GitHub", links::GITHUB), ("Documentation", links::README), ("Releases", links::RELEASES)]
+    {
         let mut h = harness(|_| {});
-        h.get_by_label("Join the ArtCraft community");
+        h.get_by_label("Lunola Folio support");
         h.get_by_label(label).click();
         h.run_steps(2);
         assert_eq!(h.state().last_opened_url.as_deref(), Some(url), "{label}");
@@ -50,10 +60,10 @@ fn about_dialog_shows_the_brand_and_links() {
         app.open_bytes("one.pdf", None, pdf.to_vec()).unwrap();
         app.dialog = Some(Dialog::About);
     });
-    assert!(h.query_all_by_label("ArtCraft").count() >= 2, "the mark and the wordmark (alt text)");
-    h.get_by_label("Join our Discord").click();
+    assert!(h.query_all_by_label("Lunola").count() >= 2, "the mark and the wordmark (alt text)");
+    h.get_by_label("Report an Issue").click();
     h.run_steps(2);
-    assert_eq!(h.state().last_opened_url.as_deref(), Some(links::DISCORD));
+    assert_eq!(h.state().last_opened_url.as_deref(), Some(links::ISSUES));
 }
 
 #[test]
