@@ -234,6 +234,16 @@ pub fn contributors_ui(ui: &mut egui::Ui) {
     let t = Tokens::get(ui.ctx());
     let id = egui::Id::new("credits_view");
     let mut v = ui.data_mut(|d| d.get_temp::<View>(id)).unwrap_or_default();
+    // The stats come from the project's full git history, which predates the Lunola Folio rebrand.
+    // Say so, so the table is never read as the authorship of the rebranding work.
+    ui.label(
+        RichText::new(crate::i18n::t(
+            "Commit history carried over from the project Lunola Folio is built on. Lunola Folio itself is rebranded and maintained by pujosety.",
+        ))
+        .small()
+        .color(t.text_muted),
+    );
+    ui.add_space(6.0);
     ui.horizontal_wrapped(|ui| {
         ui.label(crate::i18n::t("Show"));
         for m in NameMode::ALL {

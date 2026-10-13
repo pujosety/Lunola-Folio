@@ -539,6 +539,11 @@ with its author, source and license in [ATTRIBUTION.md](ATTRIBUTION.md). Release
 the Japanese fonts of [craft-fonts](https://github.com/pujosety/craft-fonts/blob/main/ATTRIBUTION.md)
 (SIL Open Font License 1.1).
 
+Lunola Folio is built on an existing open-source PDF application; its upstream lineage, and exactly
+which parts of this repository are rebranding work rather than original code, are recorded in
+[UPSTREAM.md](UPSTREAM.md). Original authorship and copyright notices are retained, and git history
+is not rewritten.
+
 The Lunola name, wordmark and logos in [`docs/brand/`](docs/brand/) are trademarks of the
 Lunola Team and are not covered by this license. They may be used only unmodified, and only as
 part of this repository and Lunola Folio, under [`docs/brand/LICENSE-brand.txt`](docs/brand/LICENSE-brand.txt).
