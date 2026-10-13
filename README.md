@@ -74,6 +74,12 @@ Lunola Folio is part of the Lunola Creative Universe. Official support is throug
 
 The Lunola Folio name and logos in `assets/app-icon/` are trademarks of the Lunola Team and are not open source. They may be used only unmodified, and only as part of Lunola Folio (see `docs/brand/LICENSE-brand.txt`). Forks and modified versions must remove them.
 
+## A note on this fork
+
+Lunola Folio is an independent, community-maintained rebrand of an open-source PDF editor. It keeps the upstream engine and file-format compatibility, but it has its own identity, roadmap, issue tracker and releases. The original authors' copyright and licence notices are preserved in [NOTICE](NOTICE) and [ATTRIBUTION.md](ATTRIBUTION.md).
+
+---
+
 ## Highlights
 
 <table>
