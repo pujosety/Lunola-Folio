@@ -1,9 +1,13 @@
 # Contributors in the About window
 
-**About ▸ Contributors** credits everyone who contributed to Lunola Folio, and **About ▸ Models** credits
-the AI models named in `Co-Authored-By` trailers. This follows the shared craftrules standard
-[`standards/contributors.md`](https://github.com/pujosety/craftrules/blob/main/standards/contributors.md);
-this page is the local copy of the decision.
+**About ▸ Contributors** credits the people who contributed **to Lunola Folio**, and
+**About ▸ Models** credits the AI models named in `Co-Authored-By` trailers.
+
+Lunola Folio was rebranded from an upstream open-source PDF project. That upstream's commit history
+is **not** carried into this list: its authors wrote a different product and never worked on Lunola
+Folio, so crediting them here would misattribute this project's authorship. Their copyright and
+licence notices remain where the licence requires them (see `NOTICE` and `ATTRIBUTION.md`); this
+page concerns the About window only.
 
 ## Decision
 
@@ -47,9 +51,7 @@ user (or by a maintainer with a `consent_source`). Delete your entry to remove y
 
 ## Refreshing (maintainers)
 
-```sh
-python3 ../../craftrules/scripts/contributors.py .           # regenerate + verify; needs git, Python 3.11+, gh
-python3 ../../craftrules/scripts/contributors.py --check .   # verify people.toml only
-```
-
-Commit the updated `contributors/contributors.json`. Git author names and emails are never recorded.
+`contributors.json` lists the maintainers of this repository, with stats taken from this repository's
+own history (`git log --author=… --numstat`). Regenerate it the same way when the list changes;
+never copy stats from another project's history. `people.toml` holds the names a contributor chose
+for themselves. Git author names and emails are never recorded.

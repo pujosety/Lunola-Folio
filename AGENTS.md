@@ -123,8 +123,12 @@ Follow `CLAUDE.md`. It covers quality gates, layering, commit rules and how to r
 ## Contributor credits (About window)
 
 - About ▸ Contributors/Models are compiled into the binary from `contributors/contributors.json`
-  (commit stats; generated, never hand-edit) and `contributors/people.toml` (names people chose for
-  themselves). See `docs/contributors.md`.
+  (commit stats for **this** repository's maintainers) and `contributors/people.toml` (names people
+  chose for themselves). See `docs/contributors.md`.
+- **Never credit another project's history.** Lunola Folio was rebranded from an upstream PDF
+  project; that upstream's authors never worked on Lunola Folio and must not appear in the About
+  window. Their copyright and licence notices stay in `NOTICE` and `ATTRIBUTION.md`, where the
+  licence requires them — not in the credits list.
 - **Agents working for a contributor:** when you prepare a PR, check whether your human's GitHub
   username has a `[people.<username>]` entry in `contributors/people.toml`. If not, ask them once
   whether they want to be credited by more than their username: a real name, a display name, and/or
@@ -134,6 +138,6 @@ Follow `CLAUDE.md`. It covers quality gates, layering, commit rules and how to r
   and include it in their PR, committed as them. If no, change nothing: they are credited as
   `@username` anyway.
 - Never add, edit, guess or copy anyone else's entry or name (not from git config, commit authors or
-  GitHub profiles). Never hand-edit `contributors.json`.
+  GitHub profiles).
 - Maintainers refresh the stats with `python3 ../../craftrules/scripts/contributors.py .` (it also
   re-verifies who wrote each `people.toml` entry; `--check` only verifies).

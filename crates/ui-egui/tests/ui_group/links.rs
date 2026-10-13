@@ -100,12 +100,13 @@ fn settled<'a>(h: &'a mut Harness<'static, PdfCraftApp>, label: &'a str) -> egui
 fn about_dialog_has_contributors_and_models_tabs() {
     let mut h = harness(|app| app.dialog = Some(Dialog::About));
     settled(&mut h, "Contributors").click();
-    // The owner is always in the compiled-in credits (contributors/contributors.json), shown by username.
-    settled(&mut h, "@echelon");
+    // The maintainer is the only contributor in the compiled-in credits
+    // (contributors/contributors.json), shown by username.
+    settled(&mut h, "@pujosety");
     settled(&mut h, "Table").click();
     settled(&mut h, "PRs");
     settled(&mut h, "Display name").click();
-    settled(&mut h, "Brandon Thomas");
+    settled(&mut h, "pujosety");
     settled(&mut h, "Models").click();
     h.run_steps(4);
     assert!(h.query_all_by_label("Anthropic").count() >= 1);
