@@ -1,7 +1,7 @@
 # lunola-folio-xfa
 
-XFA forms (XFA 3.3, the template and layout parts). Layer L3; depends on `lunola-folio-cos` and
-`lunola-folio-fonts` only.
+XFA forms (XFA 3.3, the template and layout parts). Layer L3; depends on `pdfcraft-cos` and
+`pdfcraft-fonts` only.
 
 A dynamic XFA form is a PDF shell around an XML template (`/AcroForm /XFA`): one placeholder page
 ("requires Adobe Reader") and `/NeedsRendering true`. Viewers without an XFA engine show the

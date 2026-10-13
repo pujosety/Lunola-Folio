@@ -1,7 +1,7 @@
 # lunola-folio-forms
 
-Interactive forms (AcroForm, ISO 32000-2 §12.7). Layer L3; depends on `lunola-folio-cos` and
-`lunola-folio-fonts`.
+Interactive forms (AcroForm, ISO 32000-2 §12.7). Layer L3; depends on `pdfcraft-cos` and
+`pdfcraft-fonts`.
 
 ## API
 

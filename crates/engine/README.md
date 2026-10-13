@@ -9,8 +9,8 @@ catalogue; frontends never reach past it into the parsing, rendering or editing 
   code keep a last-resort `catch_unwind` guard so an escaped panic becomes an error and the user
   keeps their document.
 
-Two frontends exist on top of it today: `lunola-folio-ui-egui` (desktop and web) and
-`lunola-folio-automation` (headless tools, the CLI and MCP). Anything one can do, the other must be
+Two frontends exist on top of it today: `pdfcraft-ui-egui` (desktop and web) and
+`pdfcraft-automation` (headless tools, the CLI and MCP). Anything one can do, the other must be
 able to do — see AGENTS.md §3.
 
 ## The editing model
@@ -67,12 +67,12 @@ family (`sign`, `sign_with_timestamp`, `timestamp_document`, `embed_ltv`).
 | `catalog` | Acrobat's "All tools" information architecture as data — groups, sections, icons, hues, and an `Availability` of `Ready`, `Planned(milestone)` or `Provider`. The UI renders what is *not* built yet, honestly |
 | `actions` | PDF action dispatch (go-to, URI, named, set-layer-state, JavaScript) |
 | `links` | Link creation, properties, and finding URLs in page text |
-| `js` | The bridge to `lunola-folio-js`. `forms` never depends on `js` directly; the engine injects it, so a build without JavaScript is possible |
+| `js` | The bridge to `pdfcraft-js`. `forms` never depends on `js` directly; the engine injects it, so a build without JavaScript is possible |
 | `xfa`, `ocr`, `compare`, `export` | Façades over the L3/L4 crates of the same names |
 
 ## Not done here
 
-- **Rendering is still borrowed.** `lunola-folio-render` wraps `hayro` and inspects through `lopdf`
+- **Rendering is still borrowed.** `pdfcraft-render` wraps `hayro` and inspects through `lopdf`
   (ADR-0004). The engine only sees `inspect() -> DocInfo`, `RenderPool` and `text::PageText`, and
   that API stays frozen while M2 replaces what is behind it.
 - Performance budgets (`misc.performance-budgets`) are not set or enforced.

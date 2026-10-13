@@ -51,4 +51,4 @@ Lunola Folio is a clean-room, open-source, Rust-native PDF application targeting
 - Parallel agents: use a separate `CARGO_TARGET_DIR` per agent and separate git worktrees.
 
 ## Current bootstrap debt (tracked in STATUS.md)
-- `lunola-folio-render` renders through the `hayro` crate directly and inspects documents through `lopdf`. Both get replaced by `cos` / `model` / the DisplayList device (M1–M2, ADR-0004).
+- `pdfcraft-render` renders through the `hayro` crate directly and inspects documents through `lopdf`. Both get replaced by `cos` / `model` / the DisplayList device (M1–M2, ADR-0004).

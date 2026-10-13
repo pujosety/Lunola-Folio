@@ -343,21 +343,21 @@ Lunola Folio is a Cargo workspace of focused crates, layered so the core never d
 
 | Crate | What it does |
 |---|---|
-| `lunola-folio-filters` | Every PDF stream filter (Flate, LZW, ASCII85, RunLength, predictors), encode and decode, property-tested |
-| `lunola-folio-crypt` | The standard security handler: RC4, AES-128/256, revisions 2–6, permissions |
-| `lunola-folio-cos` | The PDF object layer: tolerant parsing, repair, copy-on-write edits, incremental and full writing |
-| `lunola-folio-organize` | Page operations, combine / extract / split, bookmarks, page labels, document information |
-| `lunola-folio-fonts` | Font metrics and encodings for generated appearances |
-| `lunola-folio-annot` | Comments: builders and appearance streams for notes, text markup, shapes, ink and text boxes; replies, status, edits |
-| `lunola-folio-forms` | Interactive forms: the field model, filling with regenerated appearances, Clear form |
-| `lunola-folio-render` | Rendering, inspection and text extraction with reading order |
-| `lunola-folio-engine` | The façade every frontend uses: sessions, edits, undo, saving, the tool catalogue |
-| `lunola-folio-automation` | Agent control: the headless tool table, `lunola-folio-cli run`, and the opt-in MCP server |
-| `lunola-folio-ui-egui` | The desktop and web interface |
+| `pdfcraft-filters` | Every PDF stream filter (Flate, LZW, ASCII85, RunLength, predictors), encode and decode, property-tested |
+| `pdfcraft-crypt` | The standard security handler: RC4, AES-128/256, revisions 2–6, permissions |
+| `pdfcraft-cos` | The PDF object layer: tolerant parsing, repair, copy-on-write edits, incremental and full writing |
+| `pdfcraft-organize` | Page operations, combine / extract / split, bookmarks, page labels, document information |
+| `pdfcraft-fonts` | Font metrics and encodings for generated appearances |
+| `pdfcraft-annot` | Comments: builders and appearance streams for notes, text markup, shapes, ink and text boxes; replies, status, edits |
+| `pdfcraft-forms` | Interactive forms: the field model, filling with regenerated appearances, Clear form |
+| `pdfcraft-render` | Rendering, inspection and text extraction with reading order |
+| `pdfcraft-engine` | The façade every frontend uses: sessions, edits, undo, saving, the tool catalogue |
+| `pdfcraft-automation` | Agent control: the headless tool table, `lunola-folio-cli run`, and the opt-in MCP server |
+| `pdfcraft-ui-egui` | The desktop and web interface |
 
 **Quality gates.** Every change passes the same automated checks:
 - formatting, and Clippy with warnings as errors;
-- 200+ unit, property and UI tests;
+- 2800+ unit, property and UI tests;
 - crate-layering rules and a WebAssembly build check;
 - an asset-licence audit.
 
@@ -375,7 +375,7 @@ Building needs Rust 1.95 or later.
 
 ```sh
 git clone https://github.com/pujosety/Lunola-Folio
-cd lunola-folio
+cd Lunola-Folio
 cargo xtask models                                # fetch the OCR models Scan & OCR needs (release builds include them)
 cargo run --release -p lunola-folio -- some.pdf     # desktop app
 cargo xtask demo-pdf                              # build the showcase PDF used in these screenshots
@@ -389,12 +389,14 @@ dialogs, panels and keyboard shortcuts. Command search accepts the translated la
 English label and the stable command id; filenames, PDF contents, author names, custom
 action names and error details from the engine or the operating system keep their own text.
 
-Japanese fonts come from [craft-fonts](https://github.com/pujosety/craft-fonts), an optional build
-input that every release includes. To build with them (Japanese interface text, and Japanese text in
-edited PDFs):
+Japanese fonts come from `craft-fonts`, an optional build input. Without it Lunola Folio builds,
+tests and runs, but has no Japanese face: Japanese interface text shows replacement boxes, and
+writing Japanese into a PDF returns a clear error. The craft-fonts repository is not published yet,
+so for now build without it — the app is fully usable, and every language except Japanese is
+unaffected. Once it is available:
 
 ```sh
-git clone https://github.com/pujosety/craft-fonts ../craft-fonts
+git clone <craft-fonts> ../craft-fonts
 CRAFT_FONTS_DIR=../craft-fonts cargo run --release -p lunola-folio -- some.pdf
 ```
 
@@ -432,7 +434,14 @@ The summary is in **[ROADMAP.md](ROADMAP.md)**; the full assessment by dimension
 
 ## Downloads
 
-**New to Lunola Folio?** Download the latest build from the [Releases page](https://github.com/pujosety/Lunola-Folio/releases). That's the easiest way to install it.
+> [!IMPORTANT]
+> **No binary installers are published yet.** The current release carries source only: the release
+> workflow needs the project's Apple/Windows signing certificates and the shared build actions,
+> which are not available yet. Until then, build from source — see
+> [Get started](#get-started). The formats below are what the packaging scripts
+> produce and what the workflow will publish once signing is set up.
+
+**New to Lunola Folio?** Build it from source, or watch the [Releases page](https://github.com/pujosety/Lunola-Folio/releases) for installers.
 
 **Want a specific build or format?** On GitHub, the [latest release](https://github.com/pujosety/Lunola-Folio/releases/latest) has every build listed below, and [all releases](https://github.com/pujosety/Lunola-Folio/releases) has earlier versions and their notes. `<ver>` in the file names is the version number, and `SHA256SUMS.txt` lists a checksum for every file.
 
