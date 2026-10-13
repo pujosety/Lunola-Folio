@@ -302,8 +302,8 @@ fn tabs_shrink_to_fit_then_arrows_step_through_them_and_open_stays_in_sight() {
         }
     });
     let open = h.get_by_label("Open").rect();
-    let discord = h.get_by_label("Report an Issue").rect();
-    assert!(open.right() <= discord.left(), "Open {open:?} must not run under the support button {discord:?}");
+    let support = h.get_by_label("Report an Issue").rect();
+    assert!(open.right() <= support.left(), "Open {open:?} must not run under the support button {support:?}");
     let mut previous_right = f32::MIN;
     for i in 0..5 {
         let tab = h.get_by_label(&name(i)).rect();
@@ -334,8 +334,8 @@ fn tabs_shrink_to_fit_then_arrows_step_through_them_and_open_stays_in_sight() {
     }
     h.run_steps(4);
     let open = h.get_by_label("Open").rect();
-    let discord = h.get_by_label("Report an Issue").rect();
-    assert!(open.left() > 0.0 && open.right() <= discord.left(), "Open {open:?} stays in sight left of the support button {discord:?}");
+    let support = h.get_by_label("Report an Issue").rect();
+    assert!(open.left() > 0.0 && open.right() <= support.left(), "Open {open:?} stays in sight left of the support button {support:?}");
 }
 
 /// macOS (#789): with the integrated title bar, the strip is the 28 pt band AppKit centres the
