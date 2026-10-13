@@ -16,32 +16,32 @@ use anyhow::{Context, Result, bail};
 
 /// (file stem, title, what it shows, shot arguments after the PDF path).
 pub const SCENES: &[(&str, &str, &str, &[&str])] = &[
-    ("pdfcraft-viewer", "Viewer with comments", "README hero", &["--panel", "comments", "--zoom", "72"]),
-    ("pdfcraft-dark", "Dark theme", "README: themes", &["--theme", "dark", "--panel", "comments", "--page", "11", "--zoom", "80", "--notice", "off"]),
-    ("pdfcraft-organize", "Organize pages", "README: organize", &["--organize", "on", "--panel", "none", "--select", "5,6,7"]),
-    ("pdfcraft-find", "Find text", "README: search", &["--find", "type", "--page", "4", "--zoom", "90", "--panel", "none", "--notice", "off"]),
-    ("pdfcraft-bookmarks", "Bookmarks", "README: navigation", &["--panel", "bookmarks", "--page", "7", "--zoom", "75", "--notice", "off"]),
-    ("pdfcraft-forms", "Interactive form", "README: forms", &["--page", "13", "--fields", "on", "--zoom", "80", "--panel", "fields"]),
-    ("pdfcraft-layers", "Layers", "README: layers", &["--panel", "layers", "--page", "12", "--zoom", "75", "--notice", "off"]),
+    ("lunola-folio-viewer", "Viewer with comments", "README hero", &["--panel", "comments", "--zoom", "72"]),
+    ("lunola-folio-dark", "Dark theme", "README: themes", &["--theme", "dark", "--panel", "comments", "--page", "11", "--zoom", "80", "--notice", "off"]),
+    ("lunola-folio-organize", "Organize pages", "README: organize", &["--organize", "on", "--panel", "none", "--select", "5,6,7"]),
+    ("lunola-folio-find", "Find text", "README: search", &["--find", "type", "--page", "4", "--zoom", "90", "--panel", "none", "--notice", "off"]),
+    ("lunola-folio-bookmarks", "Bookmarks", "README: navigation", &["--panel", "bookmarks", "--page", "7", "--zoom", "75", "--notice", "off"]),
+    ("lunola-folio-forms", "Interactive form", "README: forms", &["--page", "13", "--fields", "on", "--zoom", "80", "--panel", "fields"]),
+    ("lunola-folio-layers", "Layers", "README: layers", &["--panel", "layers", "--page", "12", "--zoom", "75", "--notice", "off"]),
     (
-        "pdfcraft-scripts",
+        "lunola-folio-scripts",
         "Scripts of the world",
         "README: rendering",
         &["--page", "7", "--zoom", "125", "--left", "closed", "--panel", "none", "--notice", "off"],
     ),
-    ("pdfcraft-properties", "Document properties", "README: metadata", &["--dialog", "properties", "--notice", "off"]),
-    ("pdfcraft-palette", "Command palette", "README: tools", &["--palette", "page", "--notice", "off"]),
-    ("pdfcraft-split", "Split dialog", "README: split", &["--organize", "on", "--panel", "none", "--dialog", "split", "--notice", "off"]),
-    ("pdfcraft-tools", "All tools", "README: tool catalogue", &["--tools", "expanded", "--home", "on"]),
+    ("lunola-folio-properties", "Document properties", "README: metadata", &["--dialog", "properties", "--notice", "off"]),
+    ("lunola-folio-palette", "Command palette", "README: tools", &["--palette", "page", "--notice", "off"]),
+    ("lunola-folio-split", "Split dialog", "README: split", &["--organize", "on", "--panel", "none", "--dialog", "split", "--notice", "off"]),
+    ("lunola-folio-tools", "All tools", "README: tool catalogue", &["--tools", "expanded", "--home", "on"]),
     (
-        "pdfcraft-twoup",
+        "lunola-folio-twoup",
         "Two-up reading",
         "README: layouts",
         &["--layout", "two-up", "--mode", "read", "--page", "4", "--theme", "dark", "--notice", "off"],
     ),
 ];
 
-const PDF: &str = "dist/demo/pdfcraft-showcase.pdf";
+const PDF: &str = "dist/demo/lunola-folio-showcase.pdf";
 
 pub fn run(args: &[String]) -> Result<()> {
     let root = crate::assets::root();

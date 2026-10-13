@@ -447,7 +447,7 @@ The summary is in **[ROADMAP.md](ROADMAP.md)**; the full assessment by dimension
 Installers and executables are code-signed.
 
 The portable zip runs from any folder, a USB stick included. Its `portable.txt` keeps the settings,
-logs and crash recovery in a `Lunola FolioData` folder next to `lunola-folio.exe`, so nothing is written to
+logs and crash recovery in a `LunolaFolioData` folder next to `lunola-folio.exe`, so nothing is written to
 `%APPDATA%`; delete that file to use the normal per-user folders.
 
 The MSI installs for all users and requires administrator privileges. It adds "Edit with Lunola Folio"
@@ -499,44 +499,32 @@ Every other Linux build needs glibc 2.35 or newer (Ubuntu 22.04+, Debian 12+, Fe
 
 ---
 
-## The Lunola ecosystem
+## Support and contributing
 
-Lunola Folio is one of the **Lunola apps**: free, open-source creative tools from the
-Lunola team, each written from scratch in Rust and each able to
-stand on its own.
+Lunola Folio is part of the **Lunola Creative Universe**. It is one app, maintained in the open:
+there is no chat server, no forum and no account to create. GitHub is where everything happens.
 
-| | App | What it's for | Code | Learn more |
-|:-:|---|---|---|---|
-| <img src="https://raw.githubusercontent.com/pujosety/photocraft/main/assets/app-icon/hicolor/64x64/apps/ai.storyteller.photocraft.png" alt="" width="32" height="32"> | **PhotoCraft** | Image editing: layers, masks, type and real PSD files | [GitHub](https://github.com/pujosety/photocraft) |
-| <img src="https://raw.githubusercontent.com/pujosety/vectorcraft/main/assets/app-icon/hicolor/64x64/apps/ai.storyteller.vectorcraft.png" alt="" width="32" height="32"> | **VectorCraft** | Vector illustration | [GitHub](https://github.com/pujosety/vectorcraft) |
-| <img src="https://raw.githubusercontent.com/pujosety/filmcraft/main/assets/app-icon/hicolor/64x64/apps/ai.storyteller.filmcraft.png" alt="" width="32" height="32"> | **FilmCraft** | Video editing, color and sound | [GitHub](https://github.com/pujosety/filmcraft) |
-| <img src="https://raw.githubusercontent.com/pujosety/lightcraft/main/assets/app-icon/hicolor/64x64/apps/ai.storyteller.lightcraft.png" alt="" width="32" height="32"> | **LightCraft** | Photo library and raw development | [GitHub](https://github.com/pujosety/lightcraft) |
-| <img src="https://raw.githubusercontent.com/pujosety/lunola-folio/main/assets/app-icon/hicolor/64x64/apps/dev.pujosety.lunola-folio.png" alt="" width="32" height="32"> | **Lunola Folio** | **Reading, organizing and protecting PDFs · you are here** | [GitHub](https://github.com/pujosety/Lunola-Folio) |
-| <img src="https://raw.githubusercontent.com/pujosety/effectcraft/main/assets/app-icon/hicolor/64x64/apps/ai.storyteller.effectcraft.png" alt="" width="32" height="32"> | **EffectCraft** | Motion graphics and visual effects | [GitHub](https://github.com/pujosety/effectcraft) |
-| <img src="https://raw.githubusercontent.com/pujosety/designcraft/main/assets/app-icon/hicolor/64x64/apps/ai.storyteller.designcraft.png" alt="" width="32" height="32"> | **DesignCraft** | Page layout and publishing | [GitHub](https://github.com/pujosety/designcraft) |
+| I want to… | Go to |
+|---|---|
+| Report a bug | [Open an issue](https://github.com/pujosety/Lunola-Folio/issues/new) |
+| Request a feature | [Issues](https://github.com/pujosety/Lunola-Folio/issues) |
+| Read the documentation | [README](https://github.com/pujosety/Lunola-Folio#readme) · [docs/](docs/) |
+| Get a build | [Releases](https://github.com/pujosety/Lunola-Folio/releases) |
+| Read or build the source | [github.com/pujosety/Lunola-Folio](https://github.com/pujosety/Lunola-Folio) |
+| Contribute | [docs/development.md](docs/development.md) · [docs/architecture.md](docs/architecture.md) |
 
-And **Lunola** itself, our AI image and video studio for artists who want real control.
-
-<br>
+Before opening an issue, please search the existing ones, and include your version, your operating
+system and the steps to reproduce. The app's **About** panel shows all three.
 
 <p align="center">
   <a href="https://github.com/pujosety/Lunola-Folio/issues/new"><img alt="Report an Issue" src="https://img.shields.io/badge/Report%20an%20Issue-12a58a?style=for-the-badge&logo=github&logoColor=white" height="40"></a>
 </p>
 
-<h3 align="center">Come make things with us</h3>
-
 <p align="center">
-  Our Community is where artists of every kind hang out: people who paint, shoot, draw, cut film,
-  set type, and people still figuring out what they like to make. Share what you're working on,
-  ask for help, tell us what's broken, or tell us what you wish these tools could do.
-  Whatever your medium and however long you've been at it, you're welcome here.
-</p>
-
-<p align="center">
-  <a href="https://github.com/pujosety/Lunola-Folio/issues"><b>github.com/pujosety/Lunola-Folio/issues</b></a> ·
-  <a href="https://github.com/pujosety/Lunola-Folio">Source</a> ·
+  <a href="https://github.com/pujosety/Lunola-Folio"><b>Source</b></a> ·
   <a href="https://github.com/pujosety/Lunola-Folio/issues">Issues</a> ·
-  <a href="https://github.com/pujosety/Lunola-Folio/releases">Releases</a>
+  <a href="https://github.com/pujosety/Lunola-Folio/releases">Releases</a> ·
+  <a href="https://github.com/pujosety/Lunola-Folio#readme">Documentation</a>
 </p>
 
 ---

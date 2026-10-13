@@ -1,7 +1,7 @@
 //! A Model Context Protocol server over the automation tools.
 //!
 //! **Opt-in only.** Nothing in Lunola Folio starts this server on its own: it runs when a user
-//! launches `pdfcraft-cli mcp` (usually by adding that command to their agent's MCP
+//! launches `lunola-folio-cli mcp` (usually by adding that command to their agent's MCP
 //! configuration), and stops when its input closes. It opens no network port; the transport is
 //! newline-delimited JSON-RPC 2.0 over stdin/stdout.
 //!

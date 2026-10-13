@@ -1,46 +1,48 @@
 # Lunola Folio app icon
 
-<img src="lunola-folio-small.svg" alt="Lunola Folio app icon: an engraved lion's head on green" width="128">
+<img src="lunola-folio-256.png" alt="Lunola Folio app icon: a glossy neon-glass letter F on an aurora gradient tile" width="128">
 
-**Creature:** a lion, in a frontal head-and-shoulders portrait, mane running off the bottom of the tile.
+**Subject:** a stylised capital **F**, built from translucent, neon-edged ribbon strokes, on a
+rounded-square tile.
 
-**Style:** an engraving (woodcut-weight line work) portrait in the Crafting Apps "owl template" framing:
-a full-bleed colour field, no frame or roundel, the animal looking at the viewer and filling the tile.
+**Style:** hyper-glossy glassmorphism. A vivid aurora gradient sweeps the tile — warm yellow and
+orange at the upper left, through coral and magenta, to violet and blue at the lower right — with
+soft darker wave bands behind the letter, a broad white reflection across the top, and a rim light
+that traces the rounded perimeter. A four-pointed sparkle sits at the upper right of the F.
 
-**Palette:** exactly three colours.
+**Palette:** the Lunola Folio aurora gradient.
 
-| Colour | Hex | Used for |
-|---|---|---|
-| Ink | `#0b0b0c` | line work and the figure's contour |
-| Paper | `#efe9dc` | the figure (the lion's silhouette) |
-| Lunola Folio green (app colour) | `#12a58a` | the full-bleed field |
+| Colour | Role |
+|---|---|
+| Yellow / orange | the gradient's upper-left edge and the sparkle's core |
+| Coral / magenta | the upper band and the F's middle strokes |
+| Violet / blue | the lower-right field and the F's rounded stroke ends |
+| Cyan | rim light along the bottom edge |
 
-**Tile:** `viewBox="0 0 512 512"`, a rounded square with `rx=112` that clips everything. Windows and Linux
-icons use the full-bleed tile. macOS icons put it on Apple's grid (an 824 px body centred on a transparent
+**Tile:** a rounded square (squircle) with a raised, button-like border. Windows and Linux icons use
+the full-bleed tile. macOS icons put it on Apple's icon grid (an 824 px body centred on a transparent
 1024 px canvas).
 
-**Provenance:** the project owner's original drawing, made in Lunola (2880 px, keyed to the palette), then
-vectorised with craftrules `assets/logo-options/_tools/vectorize_tile.py` (potrace; no filtering or
-warping). The source drawing is kept in craftrules at `assets/app-icons/lunola-folio/source.png`, not here.
-Licence: [LICENSE.txt](LICENSE.txt) (`MIT OR Apache-2.0`, like the repo).
+**Provenance:** the product owner's original artwork for the Lunola Folio rebrand. Every PNG, `.ico`
+and `.icns` here is downsampled from `lunola-folio-1024.png` with Lanczos filtering, preserving
+transparency; the icons are never recoloured or reinterpreted. Licence: [LICENSE.txt](LICENSE.txt)
+(`MIT OR Apache-2.0`, like the repo).
 
 ## Files
 
 | File | What it is |
 |---|---|
-| `lunola-folio.svg` | the master vector (traced at 2048 px); every PNG, `.ico` and `.icns` is rendered from it |
-| `lunola-folio-small.svg` | a lighter vector (traced at 1024 px) for places where size matters, such as this README |
-| `lunola-folio-1024.png` | 1024 px on Apple's grid; also the runtime Dock icon on macOS |
+| `lunola-folio-1024.png` | the master raster (1024 px on Apple's grid); also the runtime Dock icon on macOS |
+| `lunola-folio-<n>.png` | 16, 32, 48, 64, 128, 256 and 512 px, downsampled from the master |
 | `lunola-folio.icns` | macOS icon (16–1024 px) |
 | `lunola-folio.ico` | Windows icon (16–256 px), embedded in `lunola-folio.exe` by `apps/lunola-folio/build.rs` |
-| `lunola-folio-document.svg` | Windows PDF file icon master: a Lucide document outline, green badge and outlined PDF lettering; no font dependency |
+| `lunola-folio-document.svg` | Windows PDF file icon master: a Lucide document outline with a badge and outlined PDF lettering; no font dependency |
 | `lunola-folio-document.ico` | Windows PDF file icon (16–256 px), embedded as resource 2 in `lunola-folio.exe` |
-| `hicolor/<n>x<n>/apps/dev.pujosety.lunola-folio.png` | Linux hicolor theme, 16–512 px; the 256 px one is the runtime icon on Windows and Linux |
-| `hicolor/scalable/apps/dev.pujosety.lunola-folio.svg` | Linux scalable icon (copy of the master) |
+| `hicolor/<n>x<n>/apps/dev.pujosety.lunola-folio.png` | Linux hicolor theme, 16–1024 px; the 256 px one is the runtime icon on Windows and Linux |
 
-Where it shows: `apps/lunola-folio/src/main.rs` sets the window icon (Dock, taskbar, Alt-Tab, launcher) and the
-Wayland app id `dev.pujosety.lunola-folio`; `packaging/linux/dev.pujosety.lunola-folio.desktop` names the
-hicolor icon.
+Where it shows: `apps/lunola-folio/src/main.rs` sets the window icon (Dock, taskbar, Alt-Tab, launcher)
+and the Wayland app id `dev.pujosety.lunola-folio`;
+`packaging/linux/dev.pujosety.lunola-folio.desktop` names the hicolor icon.
 
 Windows PDF files use resource 2 (`"lunola-folio.exe",-2`) when Lunola Folio is chosen as the default
 reader; the app keeps resource 1. The document outline is adapted from Lucide `file-text`
@@ -51,6 +53,7 @@ sidecar. This provides a file type icon; first-page thumbnails still need a thum
 ## Regenerate
 
 ```sh
-packaging/icons.sh        # needs resvg and python3; iconutil (macOS) for the .icns
-cargo xtask assets        # then update the sha256 values in ATTRIBUTION.toml and run with --write
+./generate-icons.sh       # downsamples every size from the master PNG (needs python3 + Pillow)
 ```
+
+The master is `lunola-folio-1024.png`; the script is idempotent and never recolours the artwork.

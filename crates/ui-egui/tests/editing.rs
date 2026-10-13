@@ -763,7 +763,7 @@ fn save_prompt_fits_the_smallest_window_whatever_the_name() {
         format!("{}.pdf", "年".repeat(251)),
         format!("{}.pdf", "W".repeat(2000)),
     ];
-    // The desktop window's minimum inner size (apps/pdfcraft/src/main.rs).
+    // The desktop window's minimum inner size (apps/lunola-folio/src/main.rs).
     let size = egui::vec2(820.0, 520.0);
     for name in names {
         let start: String = name.chars().take(10).collect();

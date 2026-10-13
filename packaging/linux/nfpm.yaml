@@ -14,7 +14,7 @@ section: graphics
 priority: optional
 maintainer: ${PDFCRAFT_MAINTAINER}
 vendor: pujosety
-homepage: https://getlunola.com/apps/lunola-folio
+homepage: https://github.com/pujosety/Lunola-Folio
 license: MIT OR Apache-2.0
 description: |-
   Open-source, native PDF editor: read, comment, fill and sign forms,

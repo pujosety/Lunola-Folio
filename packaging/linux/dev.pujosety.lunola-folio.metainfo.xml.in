@@ -19,7 +19,7 @@
   <launchable type="desktop-id">dev.pujosety.lunola-folio.desktop</launchable>
   <icon type="stock">dev.pujosety.lunola-folio</icon>
   <!-- Only url types known to appstream 0.15 (Ubuntu 22.04, where CI validates): no vcs-browser. -->
-  <url type="homepage">https://getlunola.com/apps/lunola-folio</url>
+  <url type="homepage">https://github.com/pujosety/Lunola-Folio</url>
   <url type="bugtracker">https://github.com/pujosety/Lunola-Folio/issues</url>
   <url type="help">https://github.com/pujosety/Lunola-Folio</url>
   <url type="contact">https://github.com/pujosety/Lunola-Folio/issues</url>
