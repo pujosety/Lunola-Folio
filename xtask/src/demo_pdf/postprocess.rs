@@ -8,14 +8,14 @@ use super::form::{self, FormInputs};
 use super::pdf::{Content, Font, Fonts, Stamp, colors, name, text};
 
 /// Links to this prefix in showcase.html mark where annotations go.
-const MARKER_PREFIX: &str = "https://mark.pdfcraft.invalid/";
+const MARKER_PREFIX: &str = "https://mark.lunola-folio.invalid/";
 
 const TITLE: &str = "Lunola Folio Showcase";
 const AUTHOR: &str = "Lunola Folio";
 const SUBJECT: &str = "A specimen document exercising typography, world scripts, vector graphics, \
                        MathML, forms, annotations, layers and attachments.";
 const KEYWORDS: &[&str] = &["PDF", "typography", "OpenType", "AcroForm", "annotations", "optional content", "Lunola Folio"];
-const CREATOR: &str = "pdfcraft xtask demo-pdf";
+const CREATOR: &str = "lunola-folio xtask demo-pdf";
 
 /// Chrome-printed page indices (0-based) that the post-processor refers to.
 const PAGE_CONTENTS: usize = 1;

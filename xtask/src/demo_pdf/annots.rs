@@ -119,7 +119,7 @@ impl Annotator {
             "Subj" => text(subtype),
             "M" => Object::string_literal(when.pdf.clone()),
             "CreationDate" => Object::string_literal(when.pdf),
-            "NM" => Object::string_literal(format!("pdfcraft-showcase-{:03}-{}", self.seq, subtype.to_lowercase())),
+            "NM" => Object::string_literal(format!("lunola-folio-showcase-{:03}-{}", self.seq, subtype.to_lowercase())),
         }
     }
 
